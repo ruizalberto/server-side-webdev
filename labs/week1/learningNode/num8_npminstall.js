@@ -1,2 +1,2 @@
 var lodash = require("lodash")
-console.log(lodash.random(1,10000))
+console.log(lodash.random(10,125000))
