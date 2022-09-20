@@ -1,2 +1,2 @@
-var lodash = require("lodash")
+const _ = require("lodash")
 console.log(lodash.random(10,125000))
