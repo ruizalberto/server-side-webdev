@@ -4,7 +4,7 @@ var fs = require('fs')
  //   name:'bobby'
 //}
 
-const content = 'Some content heree!' //data to be written
+const content = 'Some content different to the previous one!' //data to be written
 
 fs.writeFile('learningNode/dataWrite.txt', content, err => { //writes data to file (bydefault it replaces if the files exists). 4 parameters file, data, options, and a callback function that is called when the method is executed
   if (err) {
