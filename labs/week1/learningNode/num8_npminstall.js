@@ -1,2 +1,2 @@
-const _ = require("lodash")
-console.log(_.random(10,125000))
+var lodash = require("lodash")
+console.log(lodash.random(10,125000))
