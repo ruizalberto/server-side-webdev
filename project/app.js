@@ -28,7 +28,6 @@ connect.then((db) => {
 }, (err) => { console.log(err); });
 
 app.use('/', indexRouter);
-app.use('/aboutus', indexRouter);
 app.use('/usages', usageRouter);
 
 // catch 404 and forward to error handler
