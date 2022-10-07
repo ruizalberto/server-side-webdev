@@ -6,36 +6,33 @@
             <h1><%= title %></h1>
             <div class="ra-r"></div>
             <body>
-            <table class="table table-inverse">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Shopping</th>
-        <th>Education</th>
-        <th>Browsing</th>
-        <th>Social Media</th>
-        <th>Date</th>
-
-      </tr>
-    </thead>
-
-    <tbody>
-      <% for(var i=0; i < usagelist.length; i++) { %>
-     <tr>
-
-      <td><%= usagelist[i].name %></td>
-      <td><%= usagelist[i].shopping_usage %></td>
-      <td><%= usagelist[i].education_usage %></td>
-      <td><%= usagelist[i].browsing_usage %></td>
-      <td><%= usagelist[i].social_media_usage %></td>
-      <td><%= usagelist[i].date %></td>
-
-
-     </tr>
-  <% } %>
-    </tbody>
-
-  </table>
+              <table class="styled-table">
+                <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Shopping</th>
+                      <th>Education</th>
+                      <th>Browsing</th>
+                      <th>Social Media</th>
+                      <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <% for(var i=0; i < usagelist.length; i++) { %>
+                  <tr>
+            
+                  <td><%= usagelist[i].name %></td>
+                  <td><%= usagelist[i].shopping_usage %></td>
+                  <td><%= usagelist[i].education_usage %></td>
+                  <td><%= usagelist[i].browsing_usage %></td>
+                  <td><%= usagelist[i].social_media_usage %></td>
+                  <td><%= usagelist[i].date %></td>
+            
+            
+                  </tr>
+              <% } %>
+                </tbody>
+            </table>
 
 </body>
 </div>
