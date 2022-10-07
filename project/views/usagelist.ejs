@@ -20,12 +20,17 @@
     </thead>
 
     <tbody>
-      <% for(var i=0; i < pizzalist.length; i++) { %>
+      <% for(var i=0; i < usagelist.length; i++) { %>
      <tr>
 
-       <td><%= pizzalist[i].name %></td>
-       <td><%= pizzalist[i].description %></td>
-       <td><%= pizzalist[i].customer %></td>
+       <td><%= usagelist[i].name %></td>
+       <td><%= usagelist[i].shopping_usage %></td>
+       <td><%= usagelist[i].education_usage %></td>
+       <td><%= usagelist[i].browsing_usage %></td>
+       <td><%= usagelist[i].social_media_usage %></td>
+       <td><%= usagelist[i].date %></td>
+
+
 
 
      </tr>
