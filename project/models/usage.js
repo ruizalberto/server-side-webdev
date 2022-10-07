@@ -13,3 +13,6 @@ var usageSchemaful = new Schema({
         type: Date, default: Date.now
     }
 });
+var usages = mongoose.model('Usage', usageSchemaful);
+
+module.exports = usages;
