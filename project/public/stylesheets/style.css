@@ -138,14 +138,6 @@ a.add-b {
 .nv-b a {
   font-weight: 400;
 }
-.sh-c {
-  background: url(../images/makeyourown.png) no-repeat center 14px / 20px;
-  color: transparent;
-  height: 52px;
-  display: block;
-  margin-left: 10px;
-  width: 20px;
-}
 h1 {
   font-size: 3em;
   margin-top: 30px;
@@ -167,48 +159,11 @@ a.thumb-pr {
   margin-top: 20px;
   overflow: auto;
 }
-.thumb-pr.mn {
-  width: 520px;
-  float: left;
-  background: url(../images/StandardPizza.png) no-repeat center center / cover;
-  color: white;
-  /* line-height: 650px; */
-  height: 480px;
-  padding: 0 40px;
-  font-size: 4em;
-}
-
-.thumb-pr.r-e {
-  float: right;
-  display: block;
-  height: 400px;
-  background: url(../images/makeyourown.png) no-repeat center center / cover;
-  width: 270px;
-  color: white;
-  /* line-height: 665px; */
-  font-weight: 600;
-  text-align: center;
-  font-size: 3em;
-}
 .tp {
   height: 400px;
 }
 .bt {
   margin-top: 20px;
-}
-a.thumb-pr.c {
-  background: url(../images/makeyourown.png)no-repeat center center / cover;
-  color: white;
-  margin: 0 20px;
-}
-a.thumb-pr.l {
-  background: url(../images/makeyourown.png) no-repeat center center / cover;
-  color: white;
-}
-
-a.thumb-pr.r {
-  background: url(../images/makeyourown.png) no-repeat center center / cover;
-  color: white;
 }
 p {
   width: 500px;
