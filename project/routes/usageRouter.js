@@ -20,7 +20,7 @@ usageRouter.route('/')
 
 usageRouter.route('/create')
 .get((req,res,next) => {
-    res.render('newpizza.ejs', { title: 'Pizza shop' });   
+    res.render('newusage.ejs', { title: 'Daily Usage' });   
 })
 
 .post((req, res, next) => {
