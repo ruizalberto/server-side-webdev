@@ -24,15 +24,15 @@ usageRouter.route('/create')
 })
 
 .post((req, res, next) => {
-    usages.create(req.body) // the request body should provide name, description, and customer as defined in the pizza model -->schema
-    .then((usagecreated) => { //if the pizza is created then pizzacreated is set
-        usages.find() // if it is set then execute find function to find the pizzas in the list
-         .then((usagesfound) => { //if there are pizzas then provide the list in the next line
+    usages.create(req.body) 
+    .then((usagecreated) => { 
+        usages.find() 
+         .then((usagesfound) => { 
                 res.render('currentusage',{'usagelist' : usagesfound, title:'All Usages'} );
         }, (err) => next(err))
-    .catch((err) => next(err)); // if pizza.create is not successful ..
+    .catch((err) => next(err)); 
     }, (err) => next(err))
-    .catch((err) => next(err)); //catch all errors --> http-error module. you can also print your message but in this case the module will handle it for you
+    .catch((err) => next(err)); 
 })
 
 .put((req, res, next) => {
