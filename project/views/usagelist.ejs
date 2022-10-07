@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    
+    <div class="wrapper">
+        <h1><%= title %></h1>
+        <body>
+            <table class="table table-inverse">
+    <thead>
+      <tr>
+        <th>User Name</th>
+        <th>Shopping Usage</th>
+        <th>Education Usage</th>
+        <th>Browsing Usage</th>
+        <th>Social Media Usage</th>
+        <th>Date</th>
+
+
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <% for(var i=0; i < pizzalist.length; i++) { %>
+     <tr>
+
+       <td><%= pizzalist[i].name %></td>
+       <td><%= pizzalist[i].description %></td>
+       <td><%= pizzalist[i].customer %></td>
+
+
+     </tr>
+  <% } %>
+    </tbody>
+
+  </table>
+
+</body>
+</div>
+<% include partials/foot %>
+
+</html>
