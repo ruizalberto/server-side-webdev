@@ -37,12 +37,12 @@ usageRouter.route('/create')
 
 .put((req, res, next) => {
     res.statusCode = 403;
-    res.end('PUT operation not supported on /pizzas/create');
+    res.end('PUT operation not supported on /usages/create');
 })
 
 .delete((req, res, next) => {
     res.statusCode = 403;
-    res.end('Delete operation not  supported on /pizzas/creste');
+    res.end('Delete operation not  supported on /usages/creste');
     
 });
 
