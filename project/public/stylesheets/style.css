@@ -286,3 +286,13 @@ a.sh-c:hover {
   -webkit-user-select: none;
   touch-action: manipulation;
 }
+input {
+  padding:10px;
+  border:0;
+  box-shadow:0 0 15px 4px rgba(143, 112, 112, 0.06);
+  border-radius:10px;
+}
+label {
+  margin: 10px;
+  padding-bottom: 10px;
+}
