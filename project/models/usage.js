@@ -21,9 +21,8 @@ var usageSchemaful = new Schema({
     social_media_usage: {
         type: Number,
     },
-    date: {
-        type: Date, default: Date.now
-    }
+}, {
+    timestamps: true
 });
 var usages = mongoose.model('Usage', usageSchemaful);
 
