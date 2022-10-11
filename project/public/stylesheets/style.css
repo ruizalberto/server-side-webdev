@@ -150,6 +150,9 @@ h1 {
   font-size: 3em;
   margin-top: 20px;
 }
+h2 {
+  margin-top: 20px;
+}
 a.thumb-pr {
   display: block;
   width: 230px;
