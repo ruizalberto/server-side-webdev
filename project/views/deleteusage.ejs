@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    
+        <% include partials/head %>
+        <div class="wrapper">
+            <h1><%= title %></h1>
+            <div class="ra-r"></div>
+            <body>
+              <table class="styled-table">
+                <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Shopping</th>
+                      <th>Education</th>
+                      <th>Browsing</th>
+                      <th>Social Media</th>
+                      <th>Date</th>
+                      <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <% for(var i=0; i < usagelist.length; i++) { %>
+                  <tr>
+            
+                  <td><%= usagelist[i].name %></td>
+                  <td><%= usagelist[i].shopping_usage %></td>
+                  <td><%= usagelist[i].education_usage %></td>
+                  <td><%= usagelist[i].browsing_usage %></td>
+                  <td><%= usagelist[i].social_media_usage %></td>
+                  <td><%= usagelist[i].createdAt %></td>
+                  <td><form action="/usages/delete" method="delete">
+                    <button type="submit" class="button-2" role="button" style="color: red;">Delete</button>
+                  </form></td>
+                  
+            
+            
+                  </tr>
+              <% } %>
+                </tbody>
+            </table>
+
+</body>
+</div>
+</div>
+</html>

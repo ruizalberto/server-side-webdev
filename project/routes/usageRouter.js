@@ -2,7 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const usages = require('../models/usage'); //here we include the model we created using the pizza model with a particular scheme. we will use the variable to perform different operations on the database
+const usages = require('../models/usage');
+const { db } = require('../models/usage');
 
 const usageRouter = express.Router();
 
@@ -17,7 +18,7 @@ usageRouter.route('/')
 .delete((req, res, next) => {
 });
 
-
+// CREATE OPERATION
 usageRouter.route('/create')
 .get((req,res,next) => {
     res.render('newusage.ejs', { title: 'Create New Entry' });   
@@ -42,8 +43,30 @@ usageRouter.route('/create')
 
 .delete((req, res, next) => {
     res.statusCode = 403;
-    res.end('Delete operation not  supported on /usages/creste');
-    
+    res.end('Delete operation not supported on /usages/creste');
+});
+
+// DELETE OPERATION
+usageRouter.route("/delete")
+.get((req,res,next) => {
+    usages.find() 
+    .then((usagesfound) => { 
+           res.render('deleteusage.ejs',{'usagelist' : usagesfound, title:'All Usages'} );
+   }, (err) => next(err))})
+
+.post((req, res, next) => {
+    res.statusCode = 403;
+    res.end('POST operation not supported on /usages/creste');
+})
+
+.put((req, res, next) => {
+    res.statusCode = 403;
+    res.end('PUT operation not supported on /usages/create');
+})
+
+.delete((req, res, next) => {
+    console.log(req.body)
+    usages.deleteOne(req.params.name);
 });
 
 
