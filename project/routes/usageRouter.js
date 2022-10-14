@@ -55,8 +55,15 @@ usageRouter.route("/delete")
    }, (err) => next(err))})
 
 .post((req, res, next) => {
-    res.statusCode = 403;
-    res.end('POST operation not supported on /usages/creste');
+    usages.deleteOne(req.body)
+    .then((usagedeleted) => { 
+        usages.find() 
+         .then((usagesfound) => { 
+                res.render('currentusage',{'usagelist' : usagesfound, title:'Deleted Correctly'} );
+        }, (err) => next(err))
+    .catch((err) => next(err)); 
+    }, (err) => next(err))
+    .catch((err) => next(err)); 
 })
 
 .put((req, res, next) => {
@@ -65,8 +72,8 @@ usageRouter.route("/delete")
 })
 
 .delete((req, res, next) => {
-    console.log(req.body)
-    usages.deleteOne(req.params.name);
+    res.statusCode = 403;
+    res.end('DELETE operation not supported on /usages/creste');
 });
 
 
