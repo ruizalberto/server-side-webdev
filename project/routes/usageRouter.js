@@ -55,12 +55,9 @@ usageRouter.route("/delete")
    }, (err) => next(err))})
 
 .post((req, res, next) => {
-    usages.deleteOne(req.body)
+    usages.findByIdAndDelete(req.params.id)
     .then((usagedeleted) => { 
-        usages.find() 
-         .then((usagesfound) => { 
-                res.render('currentusage',{'usagelist' : usagesfound, title:'Deleted Correctly'} );
-        }, (err) => next(err))
+        res.redirect("/delete")
     .catch((err) => next(err)); 
     }, (err) => next(err))
     .catch((err) => next(err)); 
@@ -69,11 +66,11 @@ usageRouter.route("/delete")
 .put((req, res, next) => {
     res.statusCode = 403;
     res.end('PUT operation not supported on /usages/create');
-})
+})   
 
 .delete((req, res, next) => {
     res.statusCode = 403;
-    res.end('DELETE operation not supported on /usages/create');
+    res.end('POST operation not supported on /usages/create');
 });
 
 

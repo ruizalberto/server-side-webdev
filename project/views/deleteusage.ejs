@@ -21,7 +21,7 @@
                 <tbody>
                   <% for(var i=0; i < usagelist.length; i++) { %>
                   <tr>
-                  <form action="/usages/delete" method="post">
+                  <form action="/usages/delete/<%= usagelist[i]._id %>?_method=delete" method="post">
                   <td name="name"><%= usagelist[i].name %></td>
                   <td name="shopping_usage"><%= usagelist[i].shopping_usage %></td>
                   <td name="education_usage"><%= usagelist[i].education_usage %></td>
