@@ -73,7 +73,7 @@ usageRouter.route("/delete")
 
 .delete((req, res, next) => {
     res.statusCode = 403;
-    res.end('DELETE operation not supported on /usages/creste');
+    res.end('DELETE operation not supported on /usages/create');
 });
 
 
