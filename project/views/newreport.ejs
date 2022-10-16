@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <% include partials/head %>
+    <div class="wrapper">
+        <h1><%= title %></h1>
+        <div class="ra-r"></div>
+        <body>
+
+            <div style="margin:0 auto ; width:50%; padding:20px">
+              <form action="/usages/report" method="post">
+              <label>Name</label>
+              <input type="text" name="name">
+                <br /> <br />
+                <!-- HTML !-->
+              <button type="submit" class="button-2" role="button">Find Report</button>
+                </form>
+              </div>
+            </body>
+    </div>
+</div>
+   <% include partials/foot %>
+
+</html>
