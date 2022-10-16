@@ -55,9 +55,12 @@ usageRouter.route("/delete")
    }, (err) => next(err))})
 
 .post((req, res, next) => {
-    usages.findByIdAndDelete(req.params.id)
+    usages.findByIdAndDelete(req.body.id)
     .then((usagedeleted) => { 
-        res.redirect("/delete")
+        usages.find() 
+         .then((usagesfound) => { 
+                res.render('currentusage',{'usagelist' : usagesfound, title:'Deleted Correctly'} );
+        }, (err) => next(err))
     .catch((err) => next(err)); 
     }, (err) => next(err))
     .catch((err) => next(err)); 
