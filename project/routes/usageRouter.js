@@ -109,4 +109,29 @@ usageRouter.route("/report")
     res.end('DELETE operation not supported on /usages/report');
 });
 
+// MODIFY OPERATION
+usageRouter.route("/modify")
+.get((req,res,next) => {
+    usages.find() 
+    .then((usagesfound) => { 
+           res.render('modifyusage.ejs',{'usagelist' : usagesfound, title:'All Usages'} );
+   }, (err) => next(err))})
+.post((req, res, next) => {
+    usages.findOneAndUpdate({ "_id": req.body.id},
+    {
+        $set: { shopping_usage: 0  }
+    }) 
+    .then((usagemodified) => {
+        res.render('currentusage',{'usagelist' : usagemodified, title:'Modified Correctly'} );
+    }, (err) => next(err))
+})
+.put((req, res, next) => {
+    res.statusCode = 403;
+    res.end('PUT operation not supported on /usages/report');
+})   
+.delete((req, res, next) => {
+    res.statusCode = 403;
+    res.end('DELETE operation not supported on /usages/report');
+});
+
 module.exports = usageRouter;

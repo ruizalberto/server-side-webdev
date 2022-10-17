@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    
+        <% include partials/head %>
+        <div class="wrapper">
+            <h1><%= title %></h1>
+            <div class="ra-r"></div>
+            <body>
+              <table class="styled-table">
+                <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Shopping</th>
+                      <th>Education</th>
+                      <th>Browsing</th>
+                      <th>Social Media</th>
+                      <th>Date</th>
+                      <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <% for(var i=0; i < usagelist.length; i++) { %>
+                  <tr>
+                  <form action="/usages/modify" method="post">
+                  <td name="name"><%= usagelist[i].name %></td>
+                  <td name="shopping_usage"><%= usagelist[i].shopping_usage %></td>
+                  <td name="education_usage"><%= usagelist[i].education_usage %></td>
+                  <td name="browsing_usage"><%= usagelist[i].browsing_usage %></td>
+                  <td name="social_media_usage"><%= usagelist[i].social_media_usage %></td>
+                  <td name="createdAt"><%= usagelist[i].createdAt %></td>
+                  <td>
+                    <button name="id" value="<%= usagelist[i]._id %>" type="submit" class="button-2" role="button" style="color: rgb(36, 42, 209);">Modify</button>
+                  </td>
+                  </form>
+                  
+            
+            
+                  </tr>
+              <% } %>
+                </tbody>
+            </table>
+
+</body>
+</div>
+</div>
+</html>
