@@ -117,6 +117,16 @@ usageRouter.route("/modify")
            res.render('modifyusage.ejs',{'usagelist' : usagesfound, title:'All Usages'} );
    }, (err) => next(err))})
 .post((req, res, next) => {
+    usages.findById(req.body.id) 
+    .then((usagesfound) => {
+        res.render('currentusage',{'usagelist' : usagesfound, title:'Modify Usage'} );
+        usagesfound.update({
+            $set: { shopping_usage: req.body.shopping_usage,
+                education_usage: req.body.education_usage,
+                
+            }
+        })
+    }, (err) => next(err))
     usages.findOneAndUpdate({ "_id": req.body.id},
     {
         $set: { shopping_usage: 0  }
