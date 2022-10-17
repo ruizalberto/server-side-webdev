@@ -23,7 +23,6 @@ usageRouter.route('/create')
 .get((req,res,next) => {
     res.render('newusage.ejs', { title: 'Create New Entry' });   
 })
-
 .post((req, res, next) => {
     usages.create(req.body) 
     .then((usagecreated) => { 
@@ -35,12 +34,10 @@ usageRouter.route('/create')
     }, (err) => next(err))
     .catch((err) => next(err)); 
 })
-
 .put((req, res, next) => {
     res.statusCode = 403;
     res.end('PUT operation not supported on /usages/create');
 })
-
 .delete((req, res, next) => {
     res.statusCode = 403;
     res.end('Delete operation not supported on /usages/create');
@@ -54,7 +51,6 @@ usageRouter.route("/delete")
            res.render('deleteusage.ejs',{'usagelist' : usagesfound, title:'All Usages'} );
    }, (err) => next(err))
 })
-
 .post((req, res, next) => {
     usages.findByIdAndDelete(req.body.id)
     .then((usagedeleted) => { 
@@ -66,12 +62,10 @@ usageRouter.route("/delete")
     }, (err) => next(err))
     .catch((err) => next(err)); 
 })
-
 .put((req, res, next) => {
     res.statusCode = 403;
     res.end('PUT operation not supported on /usages/delete');
 })   
-
 .delete((req, res, next) => {
     res.statusCode = 403;
     res.end('DELETE operation not supported on /usages/delete');
@@ -82,7 +76,6 @@ usageRouter.route("/report")
 .get((req,res,next) => {
     res.render('newreport.ejs', { title: 'User Report' });
 })
-
 .post((req, res, next) => {
     usages.find({ name: req.body.name}) 
     .then((usagesfound) => { 
@@ -107,12 +100,10 @@ usageRouter.route("/report")
         } );
     }, (err) => next(err))
 })
-
 .put((req, res, next) => {
     res.statusCode = 403;
     res.end('PUT operation not supported on /usages/report');
 })   
-
 .delete((req, res, next) => {
     res.statusCode = 403;
     res.end('DELETE operation not supported on /usages/report');
