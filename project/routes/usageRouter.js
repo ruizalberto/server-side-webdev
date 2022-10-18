@@ -115,29 +115,27 @@ usageRouter.route("/modify")
     usages.find() 
     .then((usagesfound) => { 
            res.render('modifyusage.ejs',{'usagelist' : usagesfound, title:'All Usages'} );
-   }, (err) => next(err))})
+   }, (err) => next(err))
+})
 .post((req, res, next) => {
-    usages.findById(req.body.id) 
-    .then((usagesfound) => {
-        res.render('currentusage',{'usagelist' : usagesfound, title:'Modify Usage'} );
-        usagesfound.update({
-            $set: { shopping_usage: req.body.shopping_usage,
-                education_usage: req.body.education_usage,
-                
-            }
-        })
-    }, (err) => next(err))
-    usages.findOneAndUpdate({ "_id": req.body.id},
-    {
-        $set: { shopping_usage: 0  }
-    }) 
-    .then((usagemodified) => {
-        res.render('currentusage',{'usagelist' : usagemodified, title:'Modified Correctly'} );
-    }, (err) => next(err))
+    res.render('editusage',{ title:'Modify Usage', idToUpdate: req.body.id});
 })
 .put((req, res, next) => {
-    res.statusCode = 403;
-    res.end('PUT operation not supported on /usages/report');
+    usages.findOneAndUpdate({ "_id": req.body.idUpdate},
+    {
+        $set: { 
+            shopping_usage: req.body.shopping_usage,
+            education_usage: req.body.education_usage,
+            browsing_usage: req.body.browsing_usage,
+            social_media_usage: req.body.social_media_usage 
+        }
+    }) 
+    .then((usagemodified) => {
+        usages.find() 
+        .then((usagesfound) => { 
+               res.render('currentusage',{'usagelist' : usagesfound, title:'Modified Correctly'} );
+        }, (err) => next(err))    
+    }, (err) => next(err))
 })   
 .delete((req, res, next) => {
     res.statusCode = 403;
