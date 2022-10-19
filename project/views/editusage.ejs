@@ -7,7 +7,7 @@
         <body>
 
             <div style="margin:0 auto ; width:50%; padding:20px">
-              <form action="/usages/modify" method="put">
+              <form action="/usages/modify/edit" method="post">
               <label>Shopping Usage</label>
               <input type="number" name="shopping_usage" placeholder="minutes">
                 <br /> <br />
@@ -21,7 +21,7 @@
               <input type="number" name="social_media_usage" placeholder="minutes">
                 <br /> <br />
                 <!-- HTML !-->
-              <button type="submit" name="idUpdate" value="<%= idToUpdate %><" class="button-2" role="button">Edit</button>
+              <button type="submit" name="idUpdate" value="<%= idToUpdate %>" class="button-2" role="button">Edit</button>
                 </form>
               </div>
             </body>

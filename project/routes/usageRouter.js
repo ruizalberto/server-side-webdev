@@ -6,6 +6,7 @@ const usages = require('../models/usage');
 const { db } = require('../models/usage');
 
 const usageRouter = express.Router();
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 usageRouter.route('/')
 .get((req,res,next) => {
@@ -23,7 +24,7 @@ usageRouter.route('/create')
 .get((req,res,next) => {
     res.render('newusage.ejs', { title: 'Create New Entry' });   
 })
-.post((req, res, next) => {
+.post(urlencodedParser, (req, res, next) => {
     usages.create(req.body) 
     .then((usagecreated) => { 
         usages.find() 
@@ -121,13 +122,13 @@ usageRouter.route("/modify")
     res.render('editusage',{ title:'Modify Usage', idToUpdate: req.body.id});
 })
 .put((req, res, next) => {
-    usages.findOneAndUpdate({ "_id": req.body.idUpdate},
+    usages.findByIdAndUpdate({ "_id": req.body.idUpdate},
     {
         $set: { 
-            shopping_usage: req.body.shopping_usage,
-            education_usage: req.body.education_usage,
-            browsing_usage: req.body.browsing_usage,
-            social_media_usage: req.body.social_media_usage 
+            shopping_usage: 0,
+            education_usage: 0,
+            browsing_usage: 0,
+            social_media_usage: 0,
         }
     }) 
     .then((usagemodified) => {
@@ -140,6 +141,26 @@ usageRouter.route("/modify")
 .delete((req, res, next) => {
     res.statusCode = 403;
     res.end('DELETE operation not supported on /usages/report');
+});
+
+// MODIFY HELPER
+usageRouter.route("/modify/edit")
+.post(urlencodedParser, (req, res, next) => {
+    usages.findOneAndUpdate({ "_id": mongoose.Types.ObjectId(req.body.idUpdate)},
+    {
+        $set: { 
+            shopping_usage: req.body.shopping_usage,
+            education_usage: req.body.education_usage,
+            browsing_usage: req.body.browsing_usage,
+            social_media_usage: req.body.social_media_usage,
+        }
+    }) 
+    .then((usagemodified) => {
+        usages.find() 
+        .then((usagesfound) => { 
+               res.render('currentusage',{'usagelist' : usagesfound, title:'Modified Correctly'} );
+        }, (err) => next(err))    
+    }, (err) => next(err))
 });
 
 module.exports = usageRouter;
