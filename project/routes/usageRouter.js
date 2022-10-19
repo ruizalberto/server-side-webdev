@@ -122,30 +122,17 @@ usageRouter.route("/modify")
     res.render('editusage',{ title:'Modify Usage', idToUpdate: req.body.id});
 })
 .put((req, res, next) => {
-    usages.findByIdAndUpdate({ "_id": req.body.idUpdate},
-    {
-        $set: { 
-            shopping_usage: 0,
-            education_usage: 0,
-            browsing_usage: 0,
-            social_media_usage: 0,
-        }
-    }) 
-    .then((usagemodified) => {
-        usages.find() 
-        .then((usagesfound) => { 
-               res.render('currentusage',{'usagelist' : usagesfound, title:'Modified Correctly'} );
-        }, (err) => next(err))    
-    }, (err) => next(err))
+    res.statusCode = 403;
+    res.end('PUT operation not supported on /usages/modify');
 })   
 .delete((req, res, next) => {
     res.statusCode = 403;
-    res.end('DELETE operation not supported on /usages/report');
+    res.end('DELETE operation not supported on /usages/modify');
 });
 
 // MODIFY HELPER
 usageRouter.route("/modify/edit")
-.post(urlencodedParser, (req, res, next) => {
+.post((req, res, next) => {
     usages.findOneAndUpdate({ "_id": mongoose.Types.ObjectId(req.body.idUpdate)},
     {
         $set: { 
