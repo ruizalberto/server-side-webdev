@@ -15,21 +15,21 @@
                       <th>Browsing</th>
                       <th>Social Media</th>
                       <th>Date</th>
-                      <th>Delete</th>
+                      <th><%= operation %></th>
                     </tr>
                 </thead>
                 <tbody>
                   <% for(var i=0; i < usagelist.length; i++) { %>
                   <tr>
-                  <form action="/usages/delete" method="post">
+                  <form action="/usages/<%= operation.toLowerCase() %>" method="post">
                   <td name="name"><%= usagelist[i].name %></td>
                   <td name="shopping_usage"><%= usagelist[i].shopping_usage %></td>
                   <td name="education_usage"><%= usagelist[i].education_usage %></td>
                   <td name="browsing_usage"><%= usagelist[i].browsing_usage %></td>
                   <td name="social_media_usage"><%= usagelist[i].social_media_usage %></td>
-                  <td name="createdAt"><%= usagelist[i].createdAt %></td>
+                  <td name="createdAt"><%= usagelist[i].createdAt.toLocaleDateString('en-gb') %></td>
                   <td>
-                    <button name="id" value="<%= usagelist[i]._id %>" type="submit" class="button-2" role="button" style="color: red;">Delete</button>
+                    <button name="id" value="<%= usagelist[i]._id %>" type="submit" class="button-2" role="button" style="color: <%= buttonColor %>;"><%= operation %></button>
                   </td>
                   </form>
                   
