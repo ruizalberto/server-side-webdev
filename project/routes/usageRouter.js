@@ -49,7 +49,7 @@ usageRouter.route("/delete")
 .get((req,res,next) => {
     usages.find() 
     .then((usagesfound) => { 
-           res.render('operationusage.ejs',{'usagelist' : usagesfound, title:'All Usages', operation:'Delete', buttonColor:'red'} );
+           res.render('operationusage.ejs',{'usagelist' : usagesfound, title:'All Usages', operation:'Delete', buttonColor:'red;'} );
    }, (err) => next(err))
 })
 .post((req, res, next) => {
@@ -115,7 +115,7 @@ usageRouter.route("/modify")
 .get((req,res,next) => {
     usages.find() 
     .then((usagesfound) => { 
-        res.render('operationusage.ejs',{'usagelist' : usagesfound, title:'All Usages', operation:'Modify', buttonColor:'blue'} );
+        res.render('operationusage.ejs',{'usagelist' : usagesfound, title:'All Usages', operation:'Modify', buttonColor:'blue;'} );
     }, (err) => next(err))
 })
 .post((req, res, next) => {
