@@ -1,0 +1,22 @@
+{
+  "name": "nodeexpress",
+  "version": "1.0.0",
+  "description": "Demo node express with morgan and  body parser",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Oonagh",
+  "license": "ISC",
+  "dependencies": {
+    "assert": "^1.4.1",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-session": "^1.17.3",
+    "mongodb": "^3.0.10",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.6",
+    "session-file-store": "^1.5.0"
+  }
+}
