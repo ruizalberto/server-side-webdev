@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page1</title>
+    <style type="text/css" media="screen">
+        body {
+            background-color: skyblue;
+            text-decoration-color: white;
+            font-size:5em;
+        }
+    </style>
+</head>
+ 
+<body>
+    The directories of <%=Data.title%> are:<br/>
+     
+    <ul>
+        <% Data.directories.forEach((item)=>{%>
+        <li><%=item%></li>
+        <%});%>
+    </ul>
+</body>
+ 
+</html>

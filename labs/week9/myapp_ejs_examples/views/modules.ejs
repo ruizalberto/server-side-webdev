@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <title>Home Page</title>
+     
+    <style type="text/css" media="screen">
+        body {
+            background-color: skyblue;
+            text-decoration-color: white;
+            font-size:3em;
+        }
+    </style>
+</head>
+ 
+<body>
+    <center> Welcome to <%=modulename%></center>
+    <center> The content of <%=modulename%> are </center>
+    <ul>
+        <% content.chapters.forEach((item)=>{%>
+        <li><%=item%></li>
+        <%});%>
+    </ul>
+</body>
+ 
+</html>   
