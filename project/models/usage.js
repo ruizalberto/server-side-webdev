@@ -11,15 +11,19 @@ var usageSchemaful = new Schema({
     },
     shopping_usage: {
         type: Number,
+        min: 0,
     },
     education_usage: {
         type: Number,
+        min: 0,
     },
     browsing_usage: {
         type: Number,
+        min: 0,
     },
     social_media_usage: {
         type: Number,
+        min: 0,
     },
 }, {
     timestamps: true
