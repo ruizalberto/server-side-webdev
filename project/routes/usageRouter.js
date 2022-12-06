@@ -24,7 +24,7 @@ usageRouter.route('/create')
 .get((req,res,next) => {
     res.render('newusage.ejs', { title: 'Create New Entry' });   
 })
-.post(urlencodedParser, (req, res, next) => {
+.post((req, res, next) => {
     usages.create(req.body) 
     .then((usagecreated) => { 
         usages.find() 
